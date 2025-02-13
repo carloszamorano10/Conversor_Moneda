@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.cont{
+    width: 500px;
+    border-radius: 4px;
+    height: auto;
+    border: 1px solid black;
+    padding: 10px;
+    background-color:  #24242c ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1, h2, p, label{
+    color: white;
+}
+
+.contDatos{
+    background-color:  #6c747c ;
+    width: 200px;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#btn, select{
+ width: 150px;
+ border-radius: 2px;
+}
+label, #btn{
+    margin: 5px 0px 5px 0px;
+}
+p{
+    text-align: center;
+}
+#inputNumeros{
+    width: 144px;
+    border: none;
+    border-radius: 2px;
+}
+
+#btn{
+    border: none;
+    background-color: #36c4e1 ;
+    color: white;
+    padding: 6px 10px 6px 10px;
+    margin-top: 10px;
+}
