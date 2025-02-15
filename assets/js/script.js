@@ -9,11 +9,10 @@ btn.addEventListener("click", async () => {
   const monedaSel = selectMoneda.value;
 
   const valorMoneda = await traeMoneda(monedaSel);
-  if (valorMoneda) {setTimeout(()=>{
+  setTimeout(() => {
     const conv = valorIngresado / valorMoneda;
-    resultado.textContent = `Resultado: ${conv.toFixed(2)} ${monedaSel}` 
-  },1000)
-  }
+    resultado.textContent = `Resultado: ${conv.toFixed(2)} ${monedaSel}`;
+  }, 1000);
 });
 
 async function traeMoneda(moneda) {
