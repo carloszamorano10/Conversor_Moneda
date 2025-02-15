@@ -51,3 +51,7 @@ p{
     padding: 6px 10px 6px 10px;
     margin-top: 10px;
 }
+
+#load{
+    display: none;
+}
