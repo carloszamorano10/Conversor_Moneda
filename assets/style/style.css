@@ -4,7 +4,7 @@ body{
 }
 
 .cont{
-    width: 500px;
+    width: 70%;
     border-radius: 4px;
     height: auto;
     border: 1px solid black;
@@ -54,4 +54,9 @@ p{
 
 #load{
     display: none;
+}
+
+
+.grafica{
+    width: 70%;
 }
