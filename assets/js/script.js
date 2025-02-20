@@ -4,17 +4,17 @@ const btn = document.getElementById("btn");
 const resultado = document.getElementById("resultado")
 const cargando = document.getElementById("load")
 
-let myChart = ""
+
 
 btn.addEventListener("click", async () => {
-  const valorIngresado = parseFloat(input.value)
+  
+  let valorIngresado = parseFloat(input.value)
   const monedaSel = selectMoneda.value
 
   const valorMoneda = await traeMoneda(monedaSel);
   setTimeout(() => {
     const conv = valorIngresado / valorMoneda;
     resultado.textContent = `Resultado: ${conv.toFixed(2)} ${monedaSel}`
-    nuevoChart()
     renderGrafica()
   }, 1000);
 });
@@ -45,7 +45,7 @@ async function getAndCreateDataToChart() {
   const monedaSel = selectMoneda.value
   let endPoint = ""
   if(monedaSel === "dolar"){
-    endPoint = "https://mindicador.cl/api/euro"
+    endPoint = "https://mindicador.cl/api/dolar"
   } if(monedaSel === "euro"){
     endPoint = "https://mindicador.cl/api/euro"
   }
@@ -60,13 +60,16 @@ async function getAndCreateDataToChart() {
   })
   const datasets = [
     {
-      label: "Dolar ultimos días",
+      label: `${monedaSel} ultimos días`,
       borderColor: "rgb(255, 99, 132)",
       data,
     },
   ];
   return { labels, datasets }
 }
+
+
+
 async function renderGrafica() {
   const data = await getAndCreateDataToChart();
   const config = {
@@ -76,15 +79,11 @@ async function renderGrafica() {
       datasets: data.datasets,
     },
   };
-  const myChart = document.getElementById("myChart")
+  if (Chart.getChart("myChart")){
+    Chart.getChart("myChart").destroy();
+  }
+  let myChart = document.getElementById("myChart")
   myChart.style.backgroundColor = "white"
   new Chart(myChart, config)
-  
 }
 
-function nuevoChart() {
-  if (myChart) {
-    myChart.destroy(); // Destruir el gráfico anterior si existe
-  }
-  renderGrafica(); // Renderizar el nuevo gráfico
-}
